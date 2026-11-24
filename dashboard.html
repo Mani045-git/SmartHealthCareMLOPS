@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Healthcare Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+
+<header class="topbar">
+    <h2>✚ Smart Healthcare <span>AI</span></h2>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="index.html">Patient Assessment</a>
+        <a href="results.html">Results</a>
+        <a href="model.html">Model Info</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <section class="welcome">
+        <div>
+            <p class="tag">AI HEALTHCARE MONITORING</p>
+            <h1>Healthcare Dashboard</h1>
+            <p>Machine Learning powered health risk monitoring overview.</p>
+        </div>
+        <a href="index.html" class="btn">+ New Assessment</a>
+    </section>
+
+    <section class="stats">
+        <div class="card">
+            <p>ML Model</p>
+            <h2>Random Forest</h2>
+            <small>Multi-output classification</small>
+        </div>
+
+        <div class="card">
+            <p>Input Features</p>
+            <h2>22</h2>
+            <small>Patient health attributes</small>
+        </div>
+
+        <div class="card">
+            <p>Prediction Targets</p>
+            <h2>09</h2>
+            <small>Health risk categories</small>
+        </div>
+
+        <div class="card">
+            <p>Training Records</p>
+            <h2>12,000</h2>
+            <small>Training dataset samples</small>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="section-heading">
+            <div>
+                <p class="tag">MODEL OVERVIEW</p>
+                <h2>Health Risk Categories</h2>
+                <p class="muted">Nine prediction categories evaluated by the ML model.</p>
+            </div>
+        </div>
+
+        <div class="risk-grid">
+            <div>♥ <span>Heart Risk</span></div>
+            <div>◈ <span>Diabetes Risk</span></div>
+            <div>✚ <span>Hypertension Risk</span></div>
+            <div>◉ <span>Kidney Risk</span></div>
+            <div>⌁ <span>Stroke Risk</span></div>
+            <div>✧ <span>Cancer Screening Risk</span></div>
+            <div>◉ <span>Liver Risk</span></div>
+            <div>≋ <span>Respiratory Risk</span></div>
+            <div>✚ <span>Overall Health Risk</span></div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <div class="section-heading">
+            <div>
+                <p class="tag">LATEST ANALYSIS</p>
+                <h2>Latest Patient Assessment</h2>
+                <p class="muted">Summary of your most recent prediction.</p>
+            </div>
+            <a href="results.html" class="text-link">View Results →</a>
+        </div>
+
+        <div id="latest-assessment" class="latest-assessment">
+            <div class="empty-state">
+                <h3>No Assessment Available</h3>
+                <p>Complete a patient assessment to view prediction details here.</p>
+                <a href="index.html" class="btn">Start Assessment</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <p class="tag">RISK DISTRIBUTION</p>
+        <h2>Prediction Summary</h2>
+        <p class="muted">Risk levels from the latest patient assessment.</p>
+
+        <div class="risk-summary">
+            <div class="summary-item low">
+                <p>Low Risk</p>
+                <h2 id="low-count">0</h2>
+            </div>
+            <div class="summary-item moderate">
+                <p>Moderate Risk</p>
+                <h2 id="moderate-count">0</h2>
+            </div>
+            <div class="summary-item high">
+                <p>High Risk</p>
+                <h2 id="high-count">0</h2>
+            </div>
+        </div>
+        <p id="summary-note" class="muted">No prediction data available yet.</p>
+    </section>
+
+    <section class="panel bottom">
+        <div>
+            <p class="tag">GET STARTED</p>
+            <h2>Start Patient Analysis</h2>
+            <p class="muted">Enter patient information to generate AI-based risk predictions.</p>
+        </div>
+        <a href="index.html" class="btn">Analyze Patient →</a>
+    </section>
+
+</main>
+
+<footer>
+    Smart Healthcare MLOps © 2026 | Educational Demonstration Only
+</footer>
+
+<script>
+    const predictions = JSON.parse(
+        localStorage.getItem("healthPredictions") || "null"
+    );
+
+    const patientData = JSON.parse(
+        localStorage.getItem("healthPatientData") || "null"
+    );
+
+    const latest = document.getElementById("latest-assessment");
+
+    if (predictions && Object.keys(predictions).length > 0) {
+
+        const counts = {
+            low: 0,
+            moderate: 0,
+            high: 0
+        };
+
+        Object.values(predictions).forEach(value => {
+            const level = String(value).toLowerCase();
+
+            if (level === "low") counts.low++;
+            else if (level === "moderate") counts.moderate++;
+            else if (level === "high") counts.high++;
+        });
+
+        document.getElementById("low-count").textContent = counts.low;
+        document.getElementById("moderate-count").textContent = counts.moderate;
+        document.getElementById("high-count").textContent = counts.high;
+
+        document.getElementById("summary-note").textContent =
+            "Showing " + Object.keys(predictions).length +
+            " prediction categories from the latest assessment.";
+
+        latest.innerHTML = `
+            <div class="patient-details">
+                <div>
+                    <small>AGE</small>
+                    <h3>${patientData?.age ?? "N/A"}</h3>
+                </div>
+                <div>
+                    <small>GENDER</small>
+                    <h3>${patientData?.gender ?? "N/A"}</h3>
+                </div>
+                <div>
+                    <small>HEIGHT</small>
+                    <h3>${patientData?.height_cm ?? "N/A"} cm</h3>
+                </div>
+                <div>
+                    <small>WEIGHT</small>
+                    <h3>${patientData?.weight_kg ?? "N/A"} kg</h3>
+                </div>
+            </div>
+
+            <div class="latest-footer">
+                <p>Latest prediction successfully generated.</p>
+                <a href="results.html" class="btn">View Full Results →</a>
+            </div>
+        `;
+
+    } else {
+        document.getElementById("low-count").textContent = "0";
+        document.getElementById("moderate-count").textContent = "0";
+        document.getElementById("high-count").textContent = "0";
+    }
+</script>
+
+</body>
+</html>

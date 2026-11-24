@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Information</title>
+    <link rel="stylesheet" href="model.css">
+</head>
+<body>
+
+<header class="navbar">
+    <h2>✚ Smart Healthcare <span>AI</span></h2>
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="index.html">Patient Assessment</a>
+        <a href="model.html" class="active">Model Info</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <section class="hero">
+        <p class="tag">MACHINE LEARNING ENGINE</p>
+        <h1>AI Model Information</h1>
+        <p>Explore the machine learning architecture powering our healthcare risk prediction system.</p>
+    </section>
+
+    <section class="stats">
+        <div class="card">
+            <span>MODEL ALGORITHM</span>
+            <h2>Random Forest</h2>
+        </div>
+        <div class="card">
+            <span>INPUT FEATURES</span>
+            <h2>22</h2>
+        </div>
+        <div class="card">
+            <span>OUTPUT TARGETS</span>
+            <h2>09</h2>
+        </div>
+        <div class="card">
+            <span>ESTIMATORS</span>
+            <h2>150</h2>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Model Architecture</h2>
+        <p class="muted">Multi-output classification using a Random Forest algorithm.</p>
+
+        <div class="architecture">
+            <div class="node">Patient Health Data<br><small>22 Input Features</small></div>
+            <div class="arrow">↓</div>
+            <div class="node">Data Preprocessing<br><small>Feature Preparation</small></div>
+            <div class="arrow">↓</div>
+            <div class="node highlight">Random Forest Classifier<br><small>150 Estimators | Max Depth 15</small></div>
+            <div class="arrow">↓</div>
+            <div class="node">Multi-Output Predictions<br><small>9 Health Risk Categories</small></div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Dataset Information</h2>
+        <div class="details">
+            <div><span>Total Records</span><strong>15,000</strong></div>
+            <div><span>Training Samples</span><strong>12,000</strong></div>
+            <div><span>Testing Samples</span><strong>3,000</strong></div>
+            <div><span>Input Features</span><strong>22</strong></div>
+            <div><span>Prediction Targets</span><strong>9</strong></div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Prediction Targets</h2>
+        <div class="target-grid">
+            <div>01 · Heart Risk</div>
+            <div>02 · Diabetes Risk</div>
+            <div>03 · Hypertension Risk</div>
+            <div>04 · Kidney Risk</div>
+            <div>05 · Stroke Risk</div>
+            <div>06 · Cancer Screening Risk</div>
+            <div>07 · Liver Risk</div>
+            <div>08 · Respiratory Risk</div>
+            <div>09 · Overall Health Risk</div>
+        </div>
+    </section>
+
+    <section class="panel">
+        <h2>Technology Stack</h2>
+        <div class="target-grid">
+            <div>Python</div>
+            <div>Scikit-learn</div>
+            <div>FastAPI</div>
+            <div>MLflow</div>
+            <div>Docker</div>
+            <div>HTML / CSS / JavaScript</div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    Smart Healthcare MLOps © 2026
+    <p>Educational demonstration only — not a medical diagnosis.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Patient Assessment | Smart Healthcare AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="brand">
+            <div class="brand-icon">✚</div>
+            <span>Health<span class="brand-highlight">AI</span></span>
+        </div>
+
+        <div class="nav-links">
+            <a href="home.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="index.html" class="active">Assessment</a>
+            <a href="results.html">Results</a>
+            <a href="model.html">Model Info</a>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+        <div class="header-tag">
+            <span class="status-dot"></span>
+            AI HEALTH MONITORING SYSTEM
+        </div>
+
+        <h1>Patient <span>Assessment</span></h1>
+
+        <p>
+            Enter patient health information to analyze multiple
+            health risk indicators using our AI-powered system.
+        </p>
+    </header>
+
+    <!-- Assessment Form -->
+    <section class="form-card">
+
+        <div class="section-heading">
+            <div class="section-icon">✚</div>
+            <div>
+                <h2>Patient Information</h2>
+                <p>Provide accurate patient details for analysis</p>
+            </div>
+        </div>
+
+        <!-- Basic Details -->
+        <div class="form-section">
+            <h3><span>01</span> Basic Information</h3>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label for="age">Age</label>
+                    <input id="age" type="number" placeholder="Enter age">
+                </div>
+
+                <div class="input-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender">
+                        <option value="">Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="height_cm">Height (cm)</label>
+                    <input id="height_cm" type="number" placeholder="Enter height">
+                </div>
+
+                <div class="input-group">
+                    <label for="weight_kg">Weight (kg)</label>
+                    <input id="weight_kg" type="number" placeholder="Enter weight">
+                </div>
+
+                <div class="input-group">
+                    <label for="bmi">BMI</label>
+                    <input id="bmi" type="number" step="0.1" placeholder="Enter BMI">
+                </div>
+
+                <div class="input-group">
+                    <label for="sleep_hours">Sleep Hours</label>
+                    <input id="sleep_hours" type="number" step="0.1" placeholder="Hours per day">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Vital Signs -->
+        <div class="form-section">
+            <h3><span>02</span> Vital Signs</h3>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label for="heart_rate_bpm">Heart Rate (BPM)</label>
+                    <input id="heart_rate_bpm" type="number" placeholder="Heart rate">
+                </div>
+
+                <div class="input-group">
+                    <label for="systolic_bp">Systolic BP</label>
+                    <input id="systolic_bp" type="number" placeholder="Systolic pressure">
+                </div>
+
+                <div class="input-group">
+                    <label for="diastolic_bp">Diastolic BP</label>
+                    <input id="diastolic_bp" type="number" placeholder="Diastolic pressure">
+                </div>
+
+                <div class="input-group">
+                    <label for="spo2_percent">SpO2 (%)</label>
+                    <input id="spo2_percent" type="number" placeholder="Oxygen level">
+                </div>
+
+                <div class="input-group">
+                    <label for="temperature_f">Temperature (°F)</label>
+                    <input id="temperature_f" type="number" step="0.1" placeholder="Body temperature">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Laboratory Values -->
+        <div class="form-section">
+            <h3><span>03</span> Health Measurements</h3>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label for="glucose_mg_dl">Glucose (mg/dL)</label>
+                    <input id="glucose_mg_dl" type="number" placeholder="Glucose level">
+                </div>
+
+                <div class="input-group">
+                    <label for="cholesterol_mg_dl">Cholesterol (mg/dL)</label>
+                    <input id="cholesterol_mg_dl" type="number" placeholder="Cholesterol level">
+                </div>
+
+                <div class="input-group">
+                    <label for="hemoglobin_g_dl">Hemoglobin (g/dL)</label>
+                    <input id="hemoglobin_g_dl" type="number" step="0.1" placeholder="Hemoglobin level">
+                </div>
+
+                <div class="input-group">
+                    <label for="creatinine_mg_dl">Creatinine (mg/dL)</label>
+                    <input id="creatinine_mg_dl" type="number" step="0.1" placeholder="Creatinine level">
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Lifestyle -->
+        <div class="form-section">
+            <h3><span>04</span> Lifestyle Information</h3>
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label for="physical_activity">Physical Activity</label>
+                    <select id="physical_activity">
+                        <option value="">Select Activity</option>
+                        <option value="Low">Low</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="smoking">Smoking</label>
+                    <select id="smoking">
+                        <option value="">Select Status</option>
+                        <option value="Never">Never</option>
+                        <option value="Former">Former</option>
+                        <option value="Current">Current</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="alcohol">Alcohol Consumption</label>
+                    <select id="alcohol">
+                        <option value="">Select Frequency</option>
+                        <option value="None">None</option>
+                        <option value="Occasional">Occasional</option>
+                        <option value="Regular">Regular</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="stress_level">Stress Level</label>
+                    <select id="stress_level">
+                        <option value="">Select Stress Level</option>
+                        <option value="Low">Low</option>
+                        <option value="Moderate">Moderate</option>
+                        <option value="High">High</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Analyze Button -->
+        <div class="analyze-area">
+            <div class="analyze-note">
+                <span>✦</span>
+                AI-powered multi-risk prediction
+            </div>
+
+            <button type="button" onclick="predictRisk()">
+                <span>✦</span>
+                Analyze Health Risk
+                <span class="button-arrow">→</span>
+            </button>
+        </div>
+
+    </section>
+
+    <!-- Results -->
+    <section id="results" class="results">
+
+        <div class="section-heading">
+            <div class="section-icon">⌁</div>
+            <div>
+                <h2>Health Risk Results</h2>
+                <p>AI-generated risk indicators</p>
+            </div>
+        </div>
+
+        <div id="risk-container" class="risk-grid">
+
+            <div class="placeholder">
+                <div class="placeholder-icon">⌁</div>
+                <h3>Awaiting Health Analysis</h3>
+                <p>
+                    Enter patient information and click
+                    Analyze Health Risk to view predictions.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Disclaimer -->
+    <footer>
+        <p>
+            ⚠ This system provides synthetic educational risk indicators
+            and is not a medical diagnosis.
+        </p>
+
+        <h2>ఆరోగ్యమే మహాభాగ్యం</h2>
+
+        <span>Smart Healthcare Monitoring | AI & Data Science Project</span>
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
